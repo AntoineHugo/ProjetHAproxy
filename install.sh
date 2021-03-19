@@ -13,7 +13,7 @@ then
 else
 #Début du script, demande d'informations :
 if [ $(id -u) -eq 0 ]; then
-echo "${GREEN}${BOLD}Le script va commercer :${NORMAL}"
+echo "${GREEN}${BOLD}Le script va commencer :${NORMAL}"
 echo ""
 sleep 2
 else
