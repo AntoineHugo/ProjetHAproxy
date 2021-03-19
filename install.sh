@@ -209,6 +209,6 @@ echo ""
 echo ""
 echo -e "${GREEN}${BOLD}Le script s'est terminé.${NORMAL}"
 echo ""
-echo -e "${GREEN}${BOLD}Vous pouvez accéder à l'URL http://"${IP:0:14}" pour se connecter aux serveurs WEB et http://"${haproxysupervision// /}" pour l'interface Haproxy (user : ${NORMAL} ${BOLD}administration ${GREEN}${BOLD}/ mot de passe : ${NORMAL} ${BOLD}passroot${NORMAL}"
+echo -e "${GREEN}${BOLD}Vous pouvez accéder à l'URL http://"${IP:0:14}" pour se connecter aux serveurs WEB et http://"${haproxysupervision// /}" pour l'interface Haproxy (user :${NORMAL} ${BOLD}administration ${GREEN}${BOLD}/ mot de passe :${NORMAL} ${BOLD}passroot${NORMAL}"
 echo ""
 fi
