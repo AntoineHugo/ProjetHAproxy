@@ -13,7 +13,9 @@ then
 else
 #Début du script, demande d'informations :
 if [ $(id -u) -eq 0 ]; then
-echo "${GREEN}${BOLD}Le script v${NORMAL}"
+echo "${GREEN}${BOLD}Le script va commercer :${NORMAL}"
+echo ""
+sleep 2
 else
         echo -e "${RED}${BOLD}Only root may add a user to the system.${NORMAL}"
         exit 2
