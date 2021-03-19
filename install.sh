@@ -9,7 +9,7 @@ ping -c 1 8.8.8.8 &> /dev/null
 #Mise en place de garde fou en fonction de l'accès réseau et check si l'user=ROOT
 if [[ $? -ne 0 ]];
 then
-	echo -e "${RED}${BOLD}ERROR this VM can't reach internet the script can't be lauch${NORMAL}"
+        echo -e "${RED}${BOLD}ERROR this VM can't reach internet the script can't be lauch${NORMAL}"
 else
 #Début du script, demande d'informations :
 if [ $(id -u) -eq 0 ]; then
@@ -26,7 +26,7 @@ IP=$(hostname -I)
 haproxysupervision=${IP:0:13}/haproxy?stats
 
 
-#Installatin de docker : 
+#Installatin de docker :
 apt update
 apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
@@ -43,7 +43,7 @@ apt update
 apt install docker-ce -y
 
 
-#Installation Docker Compose : 
+#Installation Docker Compose :
 curl -L https://github.com/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
@@ -59,7 +59,6 @@ chown $USER:$USER -R /opt/docker2/
 cat << EOF |sudo tee -a /opt/docker2/docker-compose.yml
 version: "2.1"
 services:
-
 ####
 #Nginx
 ####
@@ -72,7 +71,6 @@ services:
       - "8081:80"
     volumes:
       - ./nginx/nginx1:/usr/share/nginx/html
-
   webserver2:
     image: nginx:alpine
     container_name: nginx2
@@ -82,7 +80,6 @@ services:
       - "8082:80"
     volumes:
       - ./nginx/nginx2:/usr/share/nginx/html
-
   webserver3:
     image: nginx:alpine
     container_name: nginx3
@@ -92,7 +89,6 @@ services:
       - "8083:80"
     volumes:
       - ./nginx/nginx3:/usr/share/nginx/html
-
   webserver4:
     image: nginx:alpine
     container_name: nginx4
@@ -102,8 +98,6 @@ services:
       - "8084:80"
     volumes:
       - ./nginx/nginx4:/usr/share/nginx/html
-
-
 ####
 #Haproxy
 ####
@@ -154,7 +148,6 @@ global
         user haproxy
         group haproxy
         daemon
-
 defaults
         log     global
         mode    http
@@ -171,8 +164,6 @@ defaults
         stats show-node
         stats auth administrateur:passroot
         stats uri  /haproxy?stats
-
-
 ###
 # FRONTEND HTTP
 ###
@@ -180,17 +171,11 @@ frontend ft_http
         mode http
         bind *:80
         # reqadd X-Forwarded-Proto:\ http
-
         acl host_nginx hdr(host) -i ${IP:0:14}
         use_backend bk_nginx if host_nginx
-
-
-
-
 ###
 # BACKEND
 ###
-
 backend bk_nginx
         mode http
         balance roundrobin
