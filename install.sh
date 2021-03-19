@@ -23,7 +23,7 @@ fi
 
 #Récupération de l'@ ip
 IP=$(hostname -I)
-haproxysupervision=${IP:0:13}/haproxy?stats
+haproxysupervision=${IP:0:14}/haproxy?stats
 
 #Installatin de docker : 
 apt update
@@ -209,6 +209,6 @@ echo ""
 echo ""
 echo -e "${GREEN}${BOLD}Le script s'est terminé.${NORMAL}"
 echo ""
-echo -e "${GREEN}${BOLD}Vous pouvez accéder à l'URL http://"${IP:0:13}" pour se connecter aux serveurs WEB et http://"${haproxysupervision// /}" pour l'interface Haproxy (user : administration / mot de passe : passroot${NORMAL}"
+echo -e "${GREEN}${BOLD}Vous pouvez accéder à l'URL http://"${IP:0:14}" pour se connecter aux serveurs WEB et http://"${haproxysupervision// /}" pour l'interface Haproxy (user : ${NORMAL}administration ${GREEN}${BOLD}/ mot de passe : ${NORMAL}passroot${NORMAL}"
 echo ""
 fi
