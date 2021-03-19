@@ -17,7 +17,7 @@ echo -e "${GREEN}${BOLD}Le script va commencer :${NORMAL}"
 echo ""
 sleep 2
 else
-        echo -e "${RED}${BOLD}Only root may add a user to the system.${NORMAL}"
+        echo -e "${RED}${BOLD}Only root can execute script on the system.${NORMAL}"
         exit 2
 fi
 
