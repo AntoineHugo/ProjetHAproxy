@@ -171,7 +171,7 @@ frontend ft_http
         mode http
         bind *:80
         # reqadd X-Forwarded-Proto:\ http
-        acl host_nginx hdr(host) -i ${IP:0:14}
+        acl host_nginx hdr(host) -i ${IP:0:13}
         use_backend bk_nginx if host_nginx
 ###
 # BACKEND
